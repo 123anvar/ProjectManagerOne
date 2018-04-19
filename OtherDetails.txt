@@ -1,3 +1,16 @@
+PORTALS
+*******
+https://cognizantiiht.captivateprime.com
+https://labs.iiht.tech
+
+ANGULAR
+*******
+https://www.quora.com/in/What-is-Angular-CLI
+
+LOAD TEST
+*********
+https://dzone.com/articles/getting-started-with-jmeter-a-basic-tutorial
+
 MONGO Installation
 ******************
 https://docs.mongodb.com/tutorials/install-mongodb-on-windows/
