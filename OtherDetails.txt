@@ -1,0 +1,11 @@
+MONGO Installation
+******************
+https://docs.mongodb.com/tutorials/install-mongodb-on-windows/
+
+Full Data Flow
+**************
+https://www.djamware.com/post/5a0673c880aca7739224ee21/mean-stack-angular-5-crud-web-application-example
+
+NODE API
+********
+https://www.codementor.io/olatundegaruba/nodejs-restful-apis-in-10-minutes-q0sgsfhbd
