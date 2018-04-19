@@ -3,6 +3,18 @@ PORTALS
 https://cognizantiiht.captivateprime.com
 https://labs.iiht.tech
 
+GIT
+***
+create new repo online & install git(not desktop UI app), create folder and run below commands then cerate angualr project etc
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/123anvar/ProjectManagerOne.git
+git remote set-url origin https://github.com/123anvar/ProjectManagerOne.git
+git push origin master
+
+git pull origin master
+
 ANGULAR
 *******
 https://www.quora.com/in/What-is-Angular-CLI
