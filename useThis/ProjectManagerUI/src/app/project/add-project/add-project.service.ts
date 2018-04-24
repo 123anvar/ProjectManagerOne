@@ -17,19 +17,19 @@ export class AddProjectService {
 
   getUsers(): Observable<Users[]> {
    
-    return this.http.get<Users[]>(environment.apiUrl+"/api/getAllUsers");
+    return this.http.get<Users[]>(environment.apiUrl+"/user");
     
   }
 
   getAllProject(): Observable<Project[]> {
    
-    return this.http.get<Project[]>(environment.apiUrl+"/api/getAllProjects");
+    return this.http.get<Project[]>(environment.apiUrl+"/project");
     
   }
   updateProject(proj:Project): Observable<ProjectEdit> {
     
     console.log(proj);
-    return this.http.post<ProjectEdit>(environment.apiUrl+"/api/updateProject",proj );
+    return this.http.post<ProjectEdit>(environment.apiUrl+"/project",proj );
   }
 }
 

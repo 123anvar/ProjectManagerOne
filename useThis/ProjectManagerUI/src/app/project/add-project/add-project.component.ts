@@ -105,6 +105,7 @@ export class AddProjectComponent implements OnInit {
             End_Date: this.datePipe.transform(this.addProjectForm.get('endDateControl').value,'MM/dd/yyyy').toString(),
             Start_Date: this.datePipe.transform(this.addProjectForm.get('startDateControl').value,'MM/dd/yyyy').toString(),
             Manager_ID: this.addProjectForm.get('selectedManagerControl').value,
+            Manager_Name: this.addProjectForm.get('selectedManagerName').value,
             Priority: this.addProjectForm.get('priorityControl').value,
             ProjectName: this.addProjectForm.get('projectNameControl').value,
             Status: this.addProjectForm.get('status').value
@@ -112,7 +113,7 @@ export class AddProjectComponent implements OnInit {
             .subscribe(data => {
                 this.getAllProject();
                 this.showMessage(data.status.Result, data.status.Message);           
-            });
+            });            
     }
 
 
