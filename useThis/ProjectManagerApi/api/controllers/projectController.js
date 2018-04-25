@@ -4,11 +4,12 @@
 var mongoose = require('mongoose'),
   Project = mongoose.model('Project'),
   dbResponse = { status: [{ Result: false, Message: '' }] };
+  var rn = require('random-int');
 
 
-
+//List all projects with status not equal to suspended
 exports.listProjects = function (req, res) {
-  Project.find({}, function (err, project) {
+  Project.find({"Status": { $ne: "Suspended" } }, function (err, project) {
     if (err)
       res.send(err);
     res.json(project);
@@ -17,7 +18,7 @@ exports.listProjects = function (req, res) {
 
 exports.readProject = function (req, res) {
   //   project.findById(req.params.projectId, function(err, project) {
-  Project.find({ Employee_ID: req.params.Employee_ID }, function (err, project) {
+  Project.find({ Project_ID: req.params.Project_ID }, function (err, project) {
     if (err) {
       res.send(err);
     }
@@ -32,6 +33,8 @@ exports.readProject = function (req, res) {
 exports.addUpdateProject = function (req, res) {  
   delete req.body._id;
   delete req.body.__v;
+  if (req.body.Project_ID === null || req.body.Project_ID === 0)
+  req.body.Project_ID = rn(10, 999999);
   Project.findOneAndUpdate({ Project_ID: req.body.Project_ID }, req.body, { new: true,upsert :true }, function (err, project) {
     if (err) {
       console.log(err);

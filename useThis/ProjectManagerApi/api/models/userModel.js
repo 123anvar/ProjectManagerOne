@@ -3,11 +3,11 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var uniqueValidator = require('mongoose-unique-validator');
+var rn = require('random-int');
 
 var userSchema = new schema({
   User_ID: {
-    type: Number,
-    default: 0
+    type: Number
   },
   First_Name: {
     type: String,

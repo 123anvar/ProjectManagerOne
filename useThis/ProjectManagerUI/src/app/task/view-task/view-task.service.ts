@@ -22,30 +22,36 @@ export class ViewTaskService {
 
   getAllProject(): Observable<Project[]> {
    
-    return this.http.get<Project[]>(environment.apiUrl+"/api/getAllProjects");
+    return this.http.get<Project[]>(environment.apiUrl+"/project");
     
   }
 
 
   getAllTasks(): Observable<TaskModel[]> {
    
-    return this.http.get<TaskModel[]>(environment.apiUrl+"/api/getAllTasks");
+    return this.http.get<TaskModel[]>(environment.apiUrl+"/task");
     
   }
 
 
   updateTask(task:TaskModel): Observable<TaskEdit> {
    
-    return this.http.post<TaskEdit>(environment.apiUrl+"/api/updateTask",task);
+    return this.http.post<TaskEdit>(environment.apiUrl+"/task",task);
     
   }
 
 
   getAllParentTasks(): Observable<ParenTask[]> {
    
-    return this.http.get<ParenTask[]>(environment.apiUrl+"/api/getAllParentTasks");
+    return this.http.get<ParenTask[]>(environment.apiUrl+"/parenttask");
     
   }
+
+  addParentTask(parenttask:ParenTask): Observable<TaskEdit> {
+    
+     return this.http.post<TaskEdit>(environment.apiUrl+"/parenttask",parenttask);
+     
+   }
 }
 
 

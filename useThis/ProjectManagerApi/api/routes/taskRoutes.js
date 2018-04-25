@@ -1,18 +1,23 @@
 'use strict';
-module.exports = function(app) {
-  var user = require('../controllers/taskController');
+module.exports = function (app) {
+  var task = require('../controllers/taskController');
 
-  // add,view,update and delete users
+  // add,view,update and delete tasks
   app.route('/task')
-    .get(user.listTasks)
-    .post(user.addUpdateTask);
+    .get(task.listTasks)
+    .post(task.addUpdateTask);
 
-    app.route('/deletetask')    
-    .post(user.deleteTask);    
+
+    app.route('/parenttask')
+      .get(task.listParentTasks)
+      .post(task.addUpdateParentTask);
+
+    app.route('/deletetask')
+    .post(task.deleteTask);
 
 
   app.route('/task/:Task_ID')
-    .get(user.readTask)
-    .put(user.addUpdateTask)
-    .delete(user.deleteTask);
+    .get(task.readTask)
+    .put(task.addUpdateTask)
+    .delete(task.deleteTask);
 };

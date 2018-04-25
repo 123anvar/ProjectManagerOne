@@ -57,7 +57,7 @@ export class AddProjectComponent implements OnInit {
     getAllProject() {
         this.projectsList = [];
         this.service.getAllProject()
-            .subscribe(data => { this.projectsList = data; });
+            .subscribe(data => { this.projectsList = data; });            
     }
 
 

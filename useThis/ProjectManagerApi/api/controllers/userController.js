@@ -4,7 +4,7 @@
 var mongoose = require('mongoose'),
   User = mongoose.model('User'),
   dbResponse = { status: [{ Result: false, Message: '' }] };
-
+  var rn = require('random-int');
 
 
 exports.listUsers = function (req, res) {
@@ -32,6 +32,8 @@ exports.readUser = function (req, res) {
 exports.addUpdateUser = function (req, res) {  
   delete req.body._id;
   delete req.body.__v;
+  if (req.body.Employee_ID === null || req.body.Employee_ID === 0)
+  req.body.Employee_ID = rn(10, 999999);
   User.findOneAndUpdate({ Employee_ID: req.body.Employee_ID }, req.body, { new: true,upsert :true }, function (err, user) {
     if (err) {
       console.log(err);

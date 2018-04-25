@@ -3,13 +3,11 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 var uniqueValidator = require('mongoose-unique-validator');
-
+var rn = require('random-int');
 
 var projectSchema = new schema({
   Project_ID: {
-    type: Number,
-    unique : true,
-    default: Date.now
+    type: Number
   },
   ProjectName: {
     type: String,

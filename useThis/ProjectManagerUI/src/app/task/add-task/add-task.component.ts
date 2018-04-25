@@ -156,6 +156,7 @@ export class AddTaskComponent implements OnInit {
         this.projectsList = [];
         this.service.getAllParentTasks()
             .subscribe(data => { this.parentTasksList = data; });
+            console.log(this.parentTasksList);
     }
 
     getAllUsers() {
@@ -196,8 +197,16 @@ export class AddTaskComponent implements OnInit {
     }
 
     addTaskSubmit() {
-
-
+        if(this.addTaskForm.controls['IsParentTaskControl'].value === true)
+        {
+            this.service.addParentTask({                
+                Parent_ID: this.addTaskForm.get('ParentTaskControl').value,                
+                Parent_Name: this.addTaskForm.get('TaskNameControl').value
+            })
+                .subscribe(data => { this.showMessage(data.status.Result, data.status.Message); this.clearDate(); });
+        
+        }
+        else{
         this.service.updateTask({
             Task_ID: this.addTaskForm.get('TaskId').value,
             End_Date: this.addTaskForm.get('EndDateControl').value !== null ? this.datePipe.transform(this.addTaskForm.get('EndDateControl').value,'MM/dd/yyyy').toString() : null ,
@@ -210,7 +219,7 @@ export class AddTaskComponent implements OnInit {
             User_ID: this.addTaskForm.get('UserIdControl').value
         })
             .subscribe(data => { this.showMessage(data.status.Result, data.status.Message); this.clearDate(); });
-
+    }
     }
 
     editMode() {
